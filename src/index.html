@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="files/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Patua+One&display=swap" rel="stylesheet">
+
+  <title>StockTracker</title>
+</head>
+
+<body>
+  <header>
+    <div id="menuToggle">
+      <label for="menutoggle" class="menu-icon">
+        <i class="fa fa-bars"></i>
+      </label>
+    </div>
+
+    <div id="titleApp">
+      StockTracker
+    </div>
+    <div id="extra">
+      <a><img src="files/img/icons8-mais-24.png" id="img_crud"></a>
+    </div>
+  </header>
+  <main>
+
+    <section class="categoriaProdutos"><span>Enlatados</span></section>
+    <div id="geral">
+      <div class="container text-center  ">
+
+        <div class="row">
+          <div class="col" id="mostraNome">
+            <div id="campoNome"></div>
+          </div>
+          <div class="col" id="mostraPeso">
+            <div id="campoPeso"></div>
+          </div>
+          <div class="col" id="mostraValor">
+            <div id="campoValor"></div>
+          </div>
+          <div class="col" id="mostraQtd">
+            <div id="campoQtd"></div>
+          </div>
+          <div class="col" id="mostraMinQtd">
+            <div id="campoMinQtd"></div>
+          </div>
+        </div>
+      </div>
+      <div id="buttonAdition">
+
+      </div>
+    </div>
+    <div id="formContatos">
+      nome: <input type="text" id="camponome"><br>
+      peso(g): <input type="text" id="campopeso"><br>
+      valor: <input type="text" id="campovalor"><br>
+      qtd: <input type="text" id="campoqtd"><br>
+      Minqtd: <input type="text" id="campoMinqtd"><br>
+      <button id="btnIncluirContato">Salvar</button>
+    </div>
+    <div id="buttonReturn">
+
+    </div>
+
+  </main>
+  <footer>
+    <div id="caixaFotter">
+      <a href="#"><img src="files/img/icons8-retornar-50.png" id="img_retorno"></a>
+      <!-- muda o # para o endereço da pagina inicial -->
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="files/page.js"></script>
+
+
+
+</body>
+
+</html>

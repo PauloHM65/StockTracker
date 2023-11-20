@@ -1,0 +1,73 @@
+{
+    "produtos": [{
+        "Fruta": [
+            {
+                "nome": "Nome",
+                "peso": "Peso(g)",
+                "valor": "Preço",
+                "Qtd": "Und",
+                "MinQtd": "UndMin"
+            },
+            {
+                "nome": "Maça",
+                "peso": "25",
+                "valor": "20",
+                "Qtd": "10",
+                "MinQtd": "3"
+            },
+            {
+                "nome": "Pera",
+                "peso": "23",
+                "valor": "32",
+                "Qtd": "14",
+                "MinQtd": "3"
+            }
+        ],
+        "Petisco": [
+            {
+                "nome": "Nome",
+                "peso": "Peso(g)",
+                "valor": "Preço",
+                "Qtd": "Und",
+                "MinQtd": "UndMin"
+            },
+            {
+                "nome": "Salame",
+                "peso": "25",
+                "valor": "20",
+                "Qtd": "10",
+                "MinQtd": "3"
+            },
+            {
+                "nome": "Amendoin",
+                "peso": "23",
+                "valor": "32",
+                "Qtd": "14",
+                "MinQtd": "3"
+            }
+        ],
+        "Enlatados": [
+            {
+                "nome": "Nome",
+                "peso": "Peso(g)",
+                "valor": "Preço",
+                "Qtd": "Und",
+                "MinQtd": "UndMin"
+            },
+            {
+                "nome": "Ervilha",
+                "peso": "25",
+                "valor": "20",
+                "Qtd": "10",
+                "MinQtd": "3"
+            },
+            {
+                "nome": "Milho",
+                "peso": "23",
+                "valor": "32",
+                "Qtd": "14",
+                "MinQtd": "3"
+            }
+        ]
+    }]
+}
