@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="nome_produto.css">
+  <title>Cadastro de Produto</title>
+  
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cadastro de Produto</h1>
+    <label for="produto">Nome do Produto:</label>
+    <input type="text" id="produto" placeholder="Digite o nome do produto">
+    <div class="button-container">
+      <button class="excluir" onclick="limparCampos()">Excluir</button>
+      <button class="cadastrar" onclick="cadastrarProduto()">Cadastrar</button>
+    </div>
+    <div id="resultado"></div>
+  </div>
+
+  <div id="proximo">
+    <button class="proximo" onclick="irParaProximaPagina()">Próximo</button>
+  </div>
+
+  <script src="nome_produto.js"></script>
+</body>
+
+</html>
