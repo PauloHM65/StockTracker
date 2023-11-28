@@ -11,7 +11,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    
+    z-index: 70;
     background-color: #88db96;
     padding: 2px;
     height: 50px;
@@ -22,11 +22,10 @@ header{
 }
 
 #menuToggle{
-   border: 1px solid black;
-   margin-left: 5px;
-   padding: 0px 15px;
+   
+   margin-left: px;
+   padding: 0px 5px;
    position: relative;
-   z-index: 1;
 
    
 }
@@ -44,11 +43,14 @@ main{
     padding: 2px;
     margin-bottom: 42px;
 }
+
+
+
+
 .categoriaProdutos{
     position: fixed;
     top: 35px;
     left: 0;
-
     width: 100%;
     border-top: 2px solid black ;
     border-bottom: 2px solid black ;
@@ -149,5 +151,9 @@ footer{
     background-color: #88db96;
 }
 #img_crud{
-margin-right: 3px;
+margin-right: 5px;
+}
+
+.dropdown ul{
+    background-color: rgb(114, 184, 126)
 }

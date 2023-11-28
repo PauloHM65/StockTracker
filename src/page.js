@@ -141,6 +141,14 @@ window.onload = function imprimeDado() {
 function opcaoDeCategorias(){
 
 }
+function crud(){
+    window.location.href = "http://127.0.0.1:5501/CRUD/nome/nome_produto.html";
+}
+function invent(){
+    window.location.href = "http://127.0.0.1:5501/tela_principal/tela_inicial.html";
+}
 
 document.getElementById('btnIncluirContato').addEventListener('click', incluirDados);
 document.getElementById('extra').addEventListener('click', opcaoDeCategorias);
+document.getElementById('btncadastar').addEventListener('click', crud);
+document.getElementById('btninventario').addEventListener('click', invent);
