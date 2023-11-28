@@ -59,47 +59,6 @@ function incluirDados() {
     imprimeDados();
 }
 
-
-
-
-function imprimeDados() {
-
-    let nome = document.getElementById('campoNome');
-    let peso = document.getElementById('campoPeso');
-    let valor = document.getElementById('campoValor');
-    let Qtd = document.getElementById('campoQtd');
-    let MinQtd = document.getElementById('campoMinQtd');
-    let srtHTML = '';
-    let srtHTMLp = '';
-    let srtHTMLv = '';
-    let srtHTMLq = '';
-    let srtHTMLmq = '';
-    let objDados = leDados()
-    for (i = 0; i < objDados.produtos.length; i++) {
-        if (i % 2 == 0) {
-            srtHTML += `<p class="cc" id="c">${objDados.produtos[i].nome}</p>`
-            srtHTMLp += `<p class="cc" id="c">${objDados.produtos[i].peso}</p>`
-            srtHTMLv += `<p class="cc" id="c">${objDados.produtos[i].valor}</p>`
-            srtHTMLq += `<p class="cc" id="c">${objDados.produtos[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" id="c">${objDados.produtos[i].MinQtd}</p>`
-        } else {
-            srtHTML += `<p class="cc" >${objDados.produtos[i].nome}</p>`
-            srtHTMLp += `<p class="cc" >${objDados.produtos[i].peso}</p>`
-            srtHTMLv += `<p class="cc" >${objDados.produtos[i].valor}</p>`
-            srtHTMLq += `<p class="cc" >${objDados.produtos[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" >${objDados.produtos[i].MinQtd}</p>`
-        }
-
-
-    }
-
-    nome.innerHTML = srtHTML
-    peso.innerHTML = srtHTMLp
-    valor.innerHTML = srtHTMLv
-    Qtd.innerHTML = srtHTMLq
-    MinQtd.innerHTML = srtHTMLmq
-
-}
 window.onload = function imprimeDado() {
 
     let nome = document.getElementById('campoNome');
@@ -128,7 +87,6 @@ window.onload = function imprimeDado() {
             srtHTMLmq += `<p class="cc" >${objDados.produtos[i].MinQtd}</p>`
         }
 
-
     }
 
     nome.innerHTML = srtHTML
@@ -138,9 +96,7 @@ window.onload = function imprimeDado() {
     MinQtd.innerHTML = srtHTMLmq
 
 }
-function opcaoDeCategorias(){
 
-}
 function crud(){
     window.location.href = "http://127.0.0.1:5501/CRUD/nome/nome_produto.html";
 }
@@ -149,6 +105,5 @@ function invent(){
 }
 
 document.getElementById('btnIncluirContato').addEventListener('click', incluirDados);
-document.getElementById('extra').addEventListener('click', opcaoDeCategorias);
 document.getElementById('btncadastar').addEventListener('click', crud);
 document.getElementById('btninventario').addEventListener('click', invent);
