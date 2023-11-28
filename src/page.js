@@ -1,4 +1,7 @@
 //o .JSON não ta funcionado
+
+
+
 function leDados() {
     let strDados = localStorage.getItem('db');
     let objDados = {};

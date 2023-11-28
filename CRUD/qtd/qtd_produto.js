@@ -6,6 +6,7 @@ function limparCampo() {
 
 function proximoPasso() {
     var quantidade = document.getElementById("quantidade").value;
+    
     var unidade = document.getElementById("unidade").value;
     var resultado = document.getElementById("resultado");
 
