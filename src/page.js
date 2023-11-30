@@ -1,28 +1,14 @@
 //o .JSON não ta funcionado
 
-
+const objDados = "https://stocktracker--pauloharaujo345.repl.co/produtos";
+var caregorias=[]
 
 function leDados() {
-    let strDados = localStorage.getItem('db');
-    let objDados = {};
-
-    if (strDados) {
-        objDados = JSON.parse(strDados);
-    } else {
-        objDados = {
-            produtos: [
-                {
-                    nome: "Nome",
-                    peso: "Peso(g)",
-                    valor: "Preço",
-                    Qtd: "Und",
-                    MinQtd: "UndMin"
-                }
-            ]
-        }
-
-    }
-
+    
+    fetch(objDados)
+        .then(function(response){return response.json})
+        .then(function (dados){
+            console.log(dados)})
 
 
     return objDados;
@@ -62,7 +48,7 @@ function incluirDados() {
     imprimeDados();
 }
 
-window.onload = function imprimeDado() {
+function imprimeDado() {
 
     let nome = document.getElementById('campoNome');
     let peso = document.getElementById('campoPeso');
@@ -75,19 +61,19 @@ window.onload = function imprimeDado() {
     let srtHTMLq = '';
     let srtHTMLmq = '';
     let objDados = leDados()
-    for (i = 0; i < objDados.produtos.length; i++) {
+    for (i = 0; i < objDados.produtos.Frutas.length; i++) {
         if (i % 2 == 0) {
-            srtHTML += `<p class="cc" id="c">${objDados.produtos[i].nome}</p>`
-            srtHTMLp += `<p class="cc" id="c">${objDados.produtos[i].peso}</p>`
-            srtHTMLv += `<p class="cc" id="c">${objDados.produtos[i].valor}</p>`
-            srtHTMLq += `<p class="cc" id="c">${objDados.produtos[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" id="c">${objDados.produtos[i].MinQtd}</p>`
+            srtHTML += `<p class="cc" id="c">${objDados.produtos.Frutas[i].nome}</p>`
+            srtHTMLp += `<p class="cc" id="c">${objDados.produtos.Frutas[i].peso}</p>`
+            srtHTMLv += `<p class="cc" id="c">${objDados.produtos.Frutas[i].valor}</p>`
+            srtHTMLq += `<p class="cc" id="c">${objDados.produtos.Frutas[i].Qtd}</p>`
+            srtHTMLmq += `<p class="cc" id="c">${objDados.produtos.Frutas[i].MinQtd}</p>`
         } else {
-            srtHTML += `<p class="cc" >${objDados.produtos[i].nome}</p>`
-            srtHTMLp += `<p class="cc" >${objDados.produtos[i].peso}</p>`
-            srtHTMLv += `<p class="cc" >${objDados.produtos[i].valor}</p>`
-            srtHTMLq += `<p class="cc" >${objDados.produtos[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" >${objDados.produtos[i].MinQtd}</p>`
+            srtHTML += `<p class="cc" >${objDados.produtos.Frutas[i].nome}</p>`
+            srtHTMLp += `<p class="cc" >${objDados.produtos.Frutas[i].peso}</p>`
+            srtHTMLv += `<p class="cc" >${objDados.produtos.Frutas[i].valor}</p>`
+            srtHTMLq += `<p class="cc" >${objDados.produtos.Frutas[i].Qtd}</p>`
+            srtHTMLmq += `<p class="cc" >${objDados.produtos.Frutas[i].MinQtd}</p>`
         }
 
     }
