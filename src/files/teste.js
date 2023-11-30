@@ -1,4 +1,4 @@
-const apiUrl = 'https://my-json-server.typicode.com/PauloHM65/tiawdb'; 
+/*const apiUrl = 'https://my-json-server.typicode.com/PauloHM65/tiawdb'; 
 
 function displayMessage(mensagem) {
     msg = document.getElementById('mg');
@@ -72,3 +72,11 @@ function deleteContato(id, refreshFunction) {
             displayMessage("Erro ao remover contato");
         });
 }
+*/
+
+const objDados = "https://stocktracker--pauloharaujo345.repl.co/produtos";
+    var caregorias=[]
+    fetch(objDados)
+        .then(function(response){return response.json})
+        .then(function (dados){
+            console.log(dados)})
