@@ -1,0 +1,69 @@
+{
+    "produtos": [
+        {
+            "Frutas": [
+                {
+                    "nome": "Nome",
+                    "peso": "Peso(g)",
+                    "valor": "Preço",
+                    "Qtd": "Und",
+                    "MinQtd": "UndMin"
+                },
+                {
+                    "nome": "Maça",
+                    "peso": 25,
+                    "valor": 20,
+                    "Qtd": 10,
+                    "MinQtd": 3,
+                    "categoria": "Futas"
+                },
+                {
+                    "nome": "Pera",
+                    "peso": 23,
+                    "valor": 32,
+                    "Qtd": 14,
+                    "MinQtd": 3,
+                    "categoria": "Futas"
+                }
+            ]},
+            {
+            "Petiscos": [
+                {
+                    "nome": "Salame",
+                    "peso": 25,
+                    "valor": 20,
+                    "Qtd": 10,
+                    "MinQtd": 3,
+                    "categoria": "Petiscos"
+                },
+                {
+                    "nome": "Amendoin",
+                    "peso": 23,
+                    "valor": 32,
+                    "Qtd": 14,
+                    "MinQtd": 3,
+                    "categoria": "Petiscos"
+                }
+            ]},
+            {
+            "Enlatados": [
+                {
+                    "nome": "Ervilha",
+                    "peso": 25,
+                    "valor": 20,
+                    "Qtd": 10,
+                    "MinQtd": 3,
+                    "categoria": "Enlatados"
+                },
+                {
+                    "nome": "Milho",
+                    "peso": 23,
+                    "valor": 32,
+                    "Qtd": 14,
+                    "MinQtd": 3,
+                    "categoria": "Enlatados"
+                }
+            ]
+        }
+    ]
+}

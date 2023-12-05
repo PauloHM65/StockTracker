@@ -73,10 +73,3 @@ function deleteContato(id, refreshFunction) {
         });
 }
 */
-
-const objDados = "https://stocktracker--pauloharaujo345.repl.co/produtos";
-    var caregorias=[]
-    fetch(objDados)
-        .then(function(response){return response.json})
-        .then(function (dados){
-            console.log(dados)})
