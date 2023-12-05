@@ -1,18 +1,30 @@
 /* ----------------- CARREGAR O BANCO DE DADOS ----------*/
 
-const Url = "https://stocktracker--pauloharaujo345.repl.co/produtos"
+const UrlProdutos = "https://stocktracker--pauloharaujo345.repl.co/produtos"
 
 
-function carregaDadosJSONServer (func) {
-    fetch(Url)
+function carregaDadosJSONServerPrudutos (func) {
+    fetch(UrlProdutos)
         .then (function (response) { return response.json() })
         .then (function (dados) {
-            Produtos = dados
+             Produtos = dados
             func ()
         })
 }
 
+/* ----------------- CARREGAR O BANCO DE DADOS ----------*/
 
+const UrlCategorias = "https://stocktracker--pauloharaujo345.repl.co/categorias"
+
+
+function carregaDadosJSONServerCategorias (func) {
+    fetch(UrlCategorias)
+        .then (function (response) { return response.json() })
+        .then (function (dados) {
+             Categorias = dados
+            func ()
+        })
+}
 
 /* -------------------- DIRECIONA PAGINA -------------------------------*/
 function HOME() {

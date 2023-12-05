@@ -1,20 +1,22 @@
 
-const Url = "https://stocktracker--pauloharaujo345.repl.co/produtos"
+/* -------------------- CARREGA DADOS -------------------------------*/
+
+const UrlProdutos = "https://stocktracker--pauloharaujo345.repl.co/produtos"
 
 
-function carregaDadosJSONServer(func) {
-    fetch(Url)
-        .then(function (response) { return response.json() })
-        .then(function (dados) {
-            Produtos = dados
-            func()
+function carregaDadosJSONServerPrudutos (func) {
+    fetch(UrlProdutos)
+        .then (function (response) { return response.json() })
+        .then (function (dados) {
+             Produtos = dados
+            func ()
         })
 }
 
 
+/* -------------------- INCLUI E MOSTRA DADOS -------------------------------*/
 
-
-function salvaDados(dados) {
+/*function salvaDados(dados) {
 
     localStorage.setItem('db', JSON.stringify(dados));
 }
@@ -45,7 +47,7 @@ function incluirDados() {
 
 
     imprimeDados();
-}
+}*/
 
 function imprimeDado() {
 
@@ -59,20 +61,19 @@ function imprimeDado() {
     let srtHTMLv = '';
     let srtHTMLq = '';
     let srtHTMLmq = '';
-    let Produtos = leDados()
-    for (i = 0; i < Produtos.produtos.Frutas.length; i++) {
+    for (i = 0; i < categorias.length; i++) {
         if (i % 2 == 0) {
-            srtHTML += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].nome}</p>`
-            srtHTMLp += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].peso}</p>`
-            srtHTMLv += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].valor}</p>`
-            srtHTMLq += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].MinQtd}</p>`
+            srtHTML += `<p class="cc" id="c">${categorias[i].nome}</p>`
+            srtHTMLp += `<p class="cc" id="c">${categorias[i].peso}</p>`
+            srtHTMLv += `<p class="cc" id="c">${categorias[i].valor}</p>`
+            srtHTMLq += `<p class="cc" id="c">${categorias[i].Qtd}</p>`
+            srtHTMLmq += `<p class="cc" id="c">${categorias[i].MinQtd}</p>`
         } else {
-            srtHTML += `<p class="cc" >${Produtos.produtos.Frutas[i].nome}</p>`
-            srtHTMLp += `<p class="cc" >${Produtos.produtos.Frutas[i].peso}</p>`
-            srtHTMLv += `<p class="cc" >${Produtos.produtos.Frutas[i].valor}</p>`
-            srtHTMLq += `<p class="cc" >${Produtos.produtos.Frutas[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" >${Produtos.produtos.Frutas[i].MinQtd}</p>`
+            srtHTML += `<p class="cc" >${categorias[i].nome}</p>`
+            srtHTMLp += `<p class="cc" >${categorias[i].peso}</p>`
+            srtHTMLv += `<p class="cc" >${categorias[i].valor}</p>`
+            srtHTMLq += `<p class="cc" >${categorias[i].Qtd}</p>`
+            srtHTMLmq += `<p class="cc" >${categorias[i].MinQtd}</p>`
         }
 
     }
@@ -85,6 +86,8 @@ function imprimeDado() {
 
 }
 
+
+/* -------------------- DIRECIONA PAGINA -------------------------------*/
 function HOME() {
     window.location.href = "http://127.0.0.1:5501/HOME/home.html";
 }
@@ -94,3 +97,8 @@ function INVENTARIO() {
 
 document.getElementById('btncadastar').addEventListener('click', HOME);
 document.getElementById('btninventario').addEventListener('click', INVENTARIO);
+
+
+/* -------------------- RECEBE A PAGINA SELECIONADA NO INVENTARIO -------------------------------*/
+
+
