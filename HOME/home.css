@@ -1,0 +1,52 @@
+body{
+    
+    margin: 0px;
+    z-index: 1;
+    box-sizing: border-box;
+
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 70;
+    background-color: #88db96;
+    padding: 2px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+#menuToggle{
+   
+   margin-left: px;
+   padding: 0px 5px;
+   position: relative;
+
+   
+}
+#titleApp{
+    font-family:'Patua One', serif;;
+    font-size:larger;
+    
+    margin: 0 auto;
+    z-index: 6;
+    
+}
+.dropdown ul{
+    background-color: rgb(114, 184, 126)
+    
+}
+
+
+/*--------- MAIN -----------*/
+
+main{
+    margin-top: 50px;
+    padding: 2px;
+
+}

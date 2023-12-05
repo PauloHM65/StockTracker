@@ -220,3 +220,11 @@ button {
 #mensagem {
     margin-top: 20px;
 }
+#titleApp{
+    font-family:'Patua One', serif;;
+    font-size:larger;
+    
+    margin: 0 auto;
+    z-index: 6;
+    
+}

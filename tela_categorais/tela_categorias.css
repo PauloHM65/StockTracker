@@ -1,14 +1,12 @@
+body {
 
-
-body{
-    
     margin: 0px;
     z-index: 1;
     box-sizing: border-box;
 
 }
 
-header{
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -20,27 +18,27 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
 }
 
-#menuToggle{
-   
-   margin-left: px;
-   padding: 0px 5px;
-   position: relative;
+#menuToggle {
 
-   
+    margin-left: px;
+    padding: 0px 5px;
+    position: relative;
+
+
 }
-#titleApp{
-    font-family:'Patua One', serif;;
-    font-size:larger;
-    
+
+#titleApp {
+    font-family: 'Patua One', serif;
+    font-size: larger;
     margin: 0 auto;
     z-index: 6;
-    
+
 }
 
-main{
+main {
     margin-top: 87px;
     padding: 2px;
     margin-bottom: 42px;
@@ -49,99 +47,23 @@ main{
 
 
 
-.categoriaProdutos{
-    position: fixed;
-    top: 35px;
-    left: 0;
-    width: 100%;
-    border-top: 2px solid black ;
-    border-bottom: 2px solid black ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15px;
-    background-color: white;
-    
-    
 
-}
-.categoriaProdutos  span{
-    padding: 5px;
-    font-weight: bold;
-    font-family: 'Bree Serif', serif;
-}
-#rowgray  {
+#caixaFotter {
 
-    background-color: rgba(75, 75, 75, 0.185);
-
-}
-.row{
-    font-size: small;
-}
-.col{
-    border-right: 1px solid rgb(121, 121, 121);
-}
-
-
-#mostraNome{
-    padding: 0px;
-}
-#mostraPeso{
-    padding: 0px;
-}
-#mostraValor{
-    padding: 0px;
-}
-#mostraQtd{
-    padding: 0px;
-}
-#mostraMinQtd{
-    padding: 0px;
-}
-
-.cc{
-    padding-bottom: 5px;
-    margin-bottom: 0px;
-    margin-top: 0;
-}
-#c{
-    background-color: rgba(218, 218, 218, 0.397);
-}
-#geral{
-    width: 100%;
-}
-#formContatos{
-    width: 15%;
-}
-#camponome{
-    width: auto;
-}
-#campopeso{
-    width: auto;
-}
-#campovalor{
-    width: auto;
-}
-#campoqtd{
-    width: auto;
-}
-#campoMinqtd{
-    width: auto;
-}
-#caixaFotter{
-    
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     top: 85%;
 }
-#img_retorno{
+
+#img_retorno {
     margin-right: 25px;
     width: 25px;
     height: 25px;
 }
-footer{
+
+footer {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -152,25 +74,42 @@ footer{
     height: 40px;
     background-color: #88db96;
 }
-#img_crud{
-margin-right: 25px;
+
+#img_crud {
+    margin-right: 25px;
 }
 
-.dropdown ul{
+.dropdown ul {
     background-color: rgb(114, 184, 126)
-    
 }
-.categorias_prd{
-    background-color: rgb(138, 138, 138);
+
+.categorias_prd {
+    box-sizing: border-box;
     display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(133, 133, 133);
+    border-radius: 25px;
+    padding: 50px;
+    margin: 0 12px 15px 0;
+    height: 40px;
+    width: 130px;
+
+
 }
-#link_categorias{
+
+#link_categorias {
     text-decoration: none;
     color: black;
 }
-#mostra_categoria{
+
+#mostra_categorias {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    flex-direction:row ;
-    justify-content: space-between;
+    justify-content: center;
+
+
+
 }

@@ -21,22 +21,23 @@
       <div class="dropdown">
         <button class="btn " type="button" data-bs-toggle="dropdown" aria-expanded="false">
           <label for="menutoggle" class="menu-icon">
-        <i class="fa fa-bars"></i>
-      </label>
+            <i class="fa fa-bars"></i>
+          </label>
         </button>
         <ul class="dropdown-menu">
           <li><button class="dropdown-item" id="btncadastar" type="button">HOME</button></li>
           <li><button class="dropdown-item" id="btninventario" type="button">Inventario</button></li>
         </ul>
       </div>
-      
+
     </div>
 
     <div id="titleApp">
       StockTracker
     </div>
-    <div class="extra" >
-      <a href="http://127.0.0.1:5501/CRUD/nome/nome_produto.html"><img src="files/img/icons8-mais-24.png" id="img_crud"></a>
+    <div class="extra">
+      <a href="http://127.0.0.1:5501/CRUD/nome_produto.html"><img src="files/img/icons8-mais-24.png"
+          id="img_crud"></a>
     </div>
   </header>
 
@@ -83,7 +84,7 @@
   </main>
   <footer>
     <div id="caixaFotter">
-      
+
       <a href="#"><img src="files/img/icons8-voltar-50.png" id="img_retorno"></a>
       <!-- muda o # para o endereço da pagina inicial -->
     </div>
@@ -100,8 +101,27 @@
     crossorigin="anonymous"></script>
   <script src="page.js"></script>
 
+  <script>
 
-  
+    function carregaDadosCidade() {
+      let params = new URLSearchParams(location.search)
+      let categorias = params.get('categoria')
+      cidade = cidades.find(function (elem) { return elem.id == id })
+      let tela = document.getElementById('tela')
+      if (cidade) {
+        tela.innerHTML = `<p>id: ${cidade.id} <br>
+                                  cidade: <strong>${cidade.cidade} </strong> <br>
+                                  estado: ${cidade.estado} <br>
+                                  População: ${cidade.populacao}</p>`
+      }
+      else {
+        tela.innerHTML = `Cidade não encontrada`
+      }
+    }
+
+    carregaDadosJSONServer(carregaDadosCidade)
+  </script>
+
 </body>
 
 </html>

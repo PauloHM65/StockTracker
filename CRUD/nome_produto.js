@@ -1,4 +1,4 @@
-
+//CRUD
 function cadastrarProduto() {
     var nomeProduto = document.getElementById("produto").value;
     var resultado = document.getElementById("resultado");
@@ -16,7 +16,7 @@ function limparCampos() {
 }
 
 function irParaProximaPagina() {
-    window.location.href = "http://127.0.0.1:5501/src/index.html";
+    window.location.href = "http://127.0.0.1:5501/tela_categorais/tela_categorias.html";
 }
 
 
@@ -94,7 +94,7 @@ function incrementarAno() {
 }
 
 function proximoTela() {
-    window.location.href = "http://127.0.0.1:5501/src/index.html";
+    window.location.href = "http://127.0.0.1:5501/tela_categorais/tela_categorias.html";
 }
 
 function confirmarCadastro() {

@@ -1,18 +1,17 @@
-//o .JSON não ta funcionado
 
-const objDados = "https://stocktracker--pauloharaujo345.repl.co/produtos";
-var caregorias=[]
-
-function leDados() {
-    
-    fetch(objDados)
-        .then(function(response){return response.json})
-        .then(function (dados){
-            console.log(dados)})
+const Url = "https://stocktracker--pauloharaujo345.repl.co/produtos"
 
 
-    return objDados;
+function carregaDadosJSONServer(func) {
+    fetch(Url)
+        .then(function (response) { return response.json() })
+        .then(function (dados) {
+            Produtos = dados
+            func()
+        })
 }
+
+
 
 
 function salvaDados(dados) {
@@ -23,7 +22,7 @@ function salvaDados(dados) {
 
 function incluirDados() {
 
-    let objDados = leDados();
+    let Produtos = leDados();
 
 
     let nome = document.getElementById('camponome').value;
@@ -39,10 +38,10 @@ function incluirDados() {
         Qtd: Qtd,
         MinQtd: MinQtd,
     };
-    objDados.produtos.push(novoprod);
+    Produtos.produtos.push(novoprod);
 
 
-    salvaDados(objDados);
+    salvaDados(Produtos);
 
 
     imprimeDados();
@@ -60,20 +59,20 @@ function imprimeDado() {
     let srtHTMLv = '';
     let srtHTMLq = '';
     let srtHTMLmq = '';
-    let objDados = leDados()
-    for (i = 0; i < objDados.produtos.Frutas.length; i++) {
+    let Produtos = leDados()
+    for (i = 0; i < Produtos.produtos.Frutas.length; i++) {
         if (i % 2 == 0) {
-            srtHTML += `<p class="cc" id="c">${objDados.produtos.Frutas[i].nome}</p>`
-            srtHTMLp += `<p class="cc" id="c">${objDados.produtos.Frutas[i].peso}</p>`
-            srtHTMLv += `<p class="cc" id="c">${objDados.produtos.Frutas[i].valor}</p>`
-            srtHTMLq += `<p class="cc" id="c">${objDados.produtos.Frutas[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" id="c">${objDados.produtos.Frutas[i].MinQtd}</p>`
+            srtHTML += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].nome}</p>`
+            srtHTMLp += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].peso}</p>`
+            srtHTMLv += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].valor}</p>`
+            srtHTMLq += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].Qtd}</p>`
+            srtHTMLmq += `<p class="cc" id="c">${Produtos.produtos.Frutas[i].MinQtd}</p>`
         } else {
-            srtHTML += `<p class="cc" >${objDados.produtos.Frutas[i].nome}</p>`
-            srtHTMLp += `<p class="cc" >${objDados.produtos.Frutas[i].peso}</p>`
-            srtHTMLv += `<p class="cc" >${objDados.produtos.Frutas[i].valor}</p>`
-            srtHTMLq += `<p class="cc" >${objDados.produtos.Frutas[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" >${objDados.produtos.Frutas[i].MinQtd}</p>`
+            srtHTML += `<p class="cc" >${Produtos.produtos.Frutas[i].nome}</p>`
+            srtHTMLp += `<p class="cc" >${Produtos.produtos.Frutas[i].peso}</p>`
+            srtHTMLv += `<p class="cc" >${Produtos.produtos.Frutas[i].valor}</p>`
+            srtHTMLq += `<p class="cc" >${Produtos.produtos.Frutas[i].Qtd}</p>`
+            srtHTMLmq += `<p class="cc" >${Produtos.produtos.Frutas[i].MinQtd}</p>`
         }
 
     }
@@ -86,13 +85,13 @@ function imprimeDado() {
 
 }
 
-function crud(){
-    window.location.href = "http://127.0.0.1:5501/CRUD/nome/nome_produto.html";
+function HOME() {
+    window.location.href = "http://127.0.0.1:5501/HOME/home.html";
 }
-function invent(){
-    window.location.href = "http://127.0.0.1:5501/tela_principal/tela_inicial.html";
+function invent() {
+    window.location.href = "http://127.0.0.1:5501/tela_categorais/tela_categorias.html";
 }
 
 document.getElementById('btnIncluirContato').addEventListener('click', incluirDados);
-document.getElementById('btncadastar').addEventListener('click', crud);
+document.getElementById('btncadastar').addEventListener('click', HOME);
 document.getElementById('btninventario').addEventListener('click', invent);
