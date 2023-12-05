@@ -1,7 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
+
 
 .container {
     max-width: 400px;
@@ -76,10 +73,7 @@ input[type="text"] {
 }
 
 /*--------------------------------------------------------------*/
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
+
 
 .container {
     max-width: 400px;
@@ -186,14 +180,6 @@ input[type="number"] {
 }
 
 /*--------------------------------------------------------------*/
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
 
 .container {
     text-align: center;
@@ -228,15 +214,8 @@ button {
     z-index: 6;
     
 }
-/*----------------------------------------*/
+/*------------------  HEADER ----------------------*/
 
-body{
-    
-    margin: 0px;
-    z-index: 1;
-    box-sizing: border-box;
-
-}
 
 header{
     position: fixed;
@@ -278,8 +257,13 @@ header{
 /*--------- MAIN -----------*/
 
 main{
-   
-    
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 50px 0;
 }
 
 /*---------- FOTTER ------------*/
