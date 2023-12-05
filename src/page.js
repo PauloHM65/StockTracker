@@ -61,8 +61,13 @@ function imprimeDado() {
     let srtHTMLv = '';
     let srtHTMLq = '';
     let srtHTMLmq = '';
+    srtHTML += `<p class="cc" id="c">NOME</p>`
+            srtHTMLp += `<p class="cc" id="c">PESO(g)</p>`
+            srtHTMLv += `<p class="cc" id="c">VALOR</p>`
+            srtHTMLq += `<p class="cc" id="c">Qtd</p>`
+            srtHTMLmq += `<p class="cc" id="c">MinQtd</p>`
     for (i = 0; i < categorias.length; i++) {
-        if (i % 2 == 0) {
+        if (i % 2 != 0) {
             srtHTML += `<p class="cc" id="c">${categorias[i].nome}</p>`
             srtHTMLp += `<p class="cc" id="c">${categorias[i].peso}</p>`
             srtHTMLv += `<p class="cc" id="c">${categorias[i].valor}</p>`

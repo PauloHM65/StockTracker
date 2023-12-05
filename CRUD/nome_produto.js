@@ -46,7 +46,7 @@ const dropdown = document.querySelector(".dropdown");
 const select = dropdown.querySelector(".dropdown-select");
 const options = dropdown.querySelector(".dropdown-options");
 
-select.addEventListener("click", function () {
+/*select.addEventListener("click", function () {
     options.style.display = options.style.display === "block" ? "none" : "block";
 });
 
@@ -56,7 +56,7 @@ options.querySelectorAll("a").forEach(function (option) {
         select.value = option.textContent;
         options.style.display = "none";
     });
-});
+});*/
 
 //---------------------------------------------------------------
 
