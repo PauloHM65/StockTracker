@@ -1,4 +1,4 @@
-//CRUD
+//-------------------------------------------------------------
 function cadastrarProduto() {
     var nomeProduto = document.getElementById("produto").value;
     var resultado = document.getElementById("resultado");
@@ -111,7 +111,7 @@ function confirmarCadastro() {
 
 
 
-/*--------------------------------*/
+/*------------- NAVEGAÇÃO TOGGLE -------------------*/
 
 function HOME() {
     window.location.href = "http://127.0.0.1:5501/HOME/home.html";
@@ -122,6 +122,7 @@ function INVENTARIO() {
 
 document.getElementById('btncadastar').addEventListener('click', HOME);
 document.getElementById('btninventario').addEventListener('click', INVENTARIO);
+
 
 /* ---------------------- VOLTA A PAGINA ANTIGA  -----------------------------*/
 document.addEventListener('DOMContentLoaded', function () {
