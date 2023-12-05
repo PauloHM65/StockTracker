@@ -71,7 +71,7 @@
 
     function selecionaCategoria() {
       for (let aux in Categorias[0]) {
-        sTm += `<div class="categorias_prd"><a id="link_categorias" href="http://127.0.0.1:5501/src/index.html?categoria=${aux}">${aux}</a></div>`
+        sTm += `<a id="link_categorias" href="http://127.0.0.1:5501/src/index.html?categoria=${aux}"><div class="categorias_prd"><span>${aux}</span></div></a>`
       }
       msg.innerHTML = sTm
     }

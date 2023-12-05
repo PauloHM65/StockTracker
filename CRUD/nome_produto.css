@@ -278,9 +278,8 @@ header{
 /*--------- MAIN -----------*/
 
 main{
-    margin-top: 50px;
-    padding: 2px;
-
+   
+    
 }
 
 /*---------- FOTTER ------------*/
@@ -294,6 +293,7 @@ footer{
     align-items: center;
     height: 40px;
     background-color: #88db96;
+    
 }
 
 
