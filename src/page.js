@@ -51,6 +51,7 @@ function incluirDados() {
 
 function imprimeDado() {
 
+    let categori = document.querySelector('.categoriaProdutos');
     let nome = document.getElementById('campoNome');
     let peso = document.getElementById('campoPeso');
     let valor = document.getElementById('campoValor');
@@ -61,11 +62,14 @@ function imprimeDado() {
     let srtHTMLv = '';
     let srtHTMLq = '';
     let srtHTMLmq = '';
+    let msf = '';
+    
     srtHTML += `<p class="cc" id="c">NOME</p>`
             srtHTMLp += `<p class="cc" id="c">PESO(g)</p>`
             srtHTMLv += `<p class="cc" id="c">VALOR</p>`
             srtHTMLq += `<p class="cc" id="c">Qtd</p>`
             srtHTMLmq += `<p class="cc" id="c">MinQtd</p>`
+    msf = `<span>${categoria}</span>`
     for (i = 0; i < categorias.length; i++) {
         if (i % 2 != 0) {
             srtHTML += `<p class="cc" id="c">${categorias[i].nome}</p>`
@@ -88,6 +92,7 @@ function imprimeDado() {
     valor.innerHTML = srtHTMLv
     Qtd.innerHTML = srtHTMLq
     MinQtd.innerHTML = srtHTMLmq
+    categori.innerHTML = msf
 
 }
 
