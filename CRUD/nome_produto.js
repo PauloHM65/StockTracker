@@ -48,7 +48,7 @@ function confirmarCadastro() {
 
 
 
-//--------------------------------------------------------------------
+//----------------------------  Frunçoes adminstrativas ----------------------------------------
 
 /*const dropdown = document.querySelector(".dropdown");
 const select = dropdown.querySelector(".dropdown-select");
