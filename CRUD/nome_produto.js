@@ -15,6 +15,16 @@ function carregaDadosJSONServerCat (func) {
 }
 
 
+function carregaDadosJSONServerPrudutos(func) {
+    fetch(UrlProdutos)
+        .then(function (response) { return response.json() })
+        .then(function (dados) {
+            Produtos = dados
+            func()
+        })
+}
+
+
 
 var mess = document.getElementById("mes");
 var anos = document.getElementById("ano");
@@ -36,7 +46,9 @@ var mensagem = document.getElementById("mensagem")
 function confirmarCadastro() {
     //confirma que todos os espaços estao escritos
     if (mess.value !== "" && anos.value !== "" && produto.value !== "" && quantidade.value !== "" && valor.value !== "" && peso.value !== "" && catego.value !== "") {
-        mensagem.innerText = `Produto cadastrada com sucesso: ${produto}/${quantidade}/${valor}/${peso}/${mess}/${anos}/${catego}`;
+        mensagem.innerText = `Produto cadastrada com sucesso: ${produto.value}/${quantidade.value}/${valor.value}/${peso.value}/${mess.value}/${anos.value}/${catego.value}`;
+
+        
 
         carregaDadosJSONServerPrudutos(inserirDadosJsonServer)
         
@@ -48,7 +60,7 @@ function confirmarCadastro() {
 
 
 
-//----------------------------  Frunçoes adminstrativas ----------------------------------------
+//----------------------------  Frunçoes administrativas ----------------------------------------
 
 /*const dropdown = document.querySelector(".dropdown");
 const select = dropdown.querySelector(".dropdown-select");
@@ -180,20 +192,35 @@ function proximoTela() {
 
 //--------------------------- INCLUI NOVOS DADOS ------------------------- 
 function inserirDadosJsonServer(){
-    fetch('https://stocktracker--pauloharaujo345.repl.co/produtos', {
+
+    var auxpeso = parseInt(peso.value)
+    var auxvalor = parseInt(valor.value)
+    var auxqtd = parseInt(quantidade.value)
+    var auxprod = produto.value.toString()
+    var auxcate = catego.value.toString()
+
+    for (let i=0; i< Produtos.length; i++){
+        var j = 1+i
+    }
+    j+=1
+    
+    fetch(UrlProdutos, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
         
     },
-    body: JSON.stringify({
-        "nome": produto.value,
-        "peso": peso.value,
-        "valor": valor.value,
-        "Qtd": quantidade.value,
+    body: JSON.stringify(
+        {
+        "id":j,
+        "nome": auxprod,
+        "peso": auxpeso,
+        "valor": auxvalor,
+        "Qtd": auxqtd,
         "MinQtd": quantidademIN,
-        "categoria": catego.value
-    }),
+        "categoria": auxcate
+    }
+    ),
 })
     .then(response => {
         console.log(response); // Certifique-se de que 'response' está definido aqui
@@ -201,6 +228,7 @@ function inserirDadosJsonServer(){
     })
     .then(data => {
         // Adicionar a resposta do servidor ao array
+        
         Produtos.push(data);
 
         // Limpar o campo de input
@@ -254,14 +282,7 @@ function updateTable() {
 
 
 
-function carregaDadosJSONServerPrudutos(func) {
-    fetch(UrlProdutos)
-        .then(function (response) { return response.json() })
-        .then(function (dados) {
-            Produtos = dados
-            func()
-        })
-}
+
 
 
 
