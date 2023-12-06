@@ -11,7 +11,7 @@ function cadastrarProduto() {
 }
 
 function irParaProximaPagina() {
-    window.location.href = "http://127.0.0.1:5502/tela_categorais/tela_categorias.html";
+    window.location.href = "http://127.0.0.1:5501/tela_categorais/tela_categorias.html";
 }
 
 
