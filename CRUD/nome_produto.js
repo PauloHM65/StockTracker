@@ -1,4 +1,4 @@
-//-------------------------------------------------------------
+
 function cadastrarProduto() {
     var nomeProduto = document.getElementById("produto").value;
     var resultado = document.getElementById("resultado");
@@ -10,22 +10,26 @@ function cadastrarProduto() {
     }
 }
 
-function limparCampos() {
-    document.getElementById("produto").value = "";
-    document.getElementById("resultado").innerHTML = "";
-}
-
 function irParaProximaPagina() {
-    window.location.href = "http://127.0.0.1:5501/tela_categorais/tela_categorias.html";
+    window.location.href = "http://127.0.0.1:5502/tela_categorais/tela_categorias.html";
 }
 
 
-//--------------------------------------------------------------------
+//----------------------------  Frunçoes adminstrativas ----------------------------------------
 
 
 function limparCampo() {
+    document.getElementById("produto").value = "";
+    document.getElementById("resultado").innerHTML = "";
     document.getElementById("quantidade").value = "";
     document.getElementById("resultado").innerHTML = "";
+    document.getElementById("unidade").value = "";
+
+    document.getElementById("mes").value = "";
+    
+    document.getElementById("ano").value = "";
+    
+    
 }
 
 function proximoPasso() {
@@ -64,11 +68,6 @@ options.querySelectorAll("a").forEach(function (option) {
 let mes = 1;
 let ano = new Date().getFullYear();
 
-function limparValidade() {
-    document.getElementById("mes").value = "";
-    document.getElementById("ano").value = "";
-}
-
 function decrementarMes() {
     if (mes > 1) {
         mes--;
@@ -92,10 +91,12 @@ function incrementarAno() {
     ano++;
     document.getElementById("ano").value = ano;
 }
-
+/*------------- PROXIMA PAGINA -------------------*/
 function proximoTela() {
     window.location.href = "http://127.0.0.1:5501/tela_categorais/tela_categorias.html";
 }
+
+
 
 function confirmarCadastro() {
     const mensagem = document.getElementById("mensagem");
