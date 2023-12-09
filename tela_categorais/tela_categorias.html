@@ -70,14 +70,18 @@
     var sTm = ''
 
     function selecionaCategoria() {
-      for (let aux in Categorias[0]) {
-        sTm += `<a id="link_categorias" href="http://127.0.0.1:5501/src/index.html?categoria=${aux}"><div class="categorias_prd"><span>${aux}</span></div></a>`
+      var aux
+      for (let i=0; i< Categorias.length;i++) {
+        aux = Categorias[i]
+        console.log(Categorias)
+        sTm += `<a id="link_categorias" href="http://127.0.0.1:5501/src/index.html?categoria=${aux.cat}"><div class="categorias_prd"><span>${aux.cat}</span></div></a>`
       }
       msg.innerHTML = sTm
     }
     /*for (let i = 0; i < Produtos.length; i++) {
         var aux = Produtos[i]
         sTm += `<div class="categorias_prd"><a id="link_categorias" href="index.html?categoria=${aux.categoria}">${aux.categoria}</a></div>`
+        
     }
     msg.innerHTML = sTm*/
     carregaDadosJSONServerCategorias(selecionaCategoria)

@@ -108,8 +108,9 @@
     function imprimeDado() {
       var cat = document.getElementById('mostracat')
       var srtHTML = ''
-      for( i in Categorias[0]) {
-          srtHTML += `<li><a class="dropdown-item" href="#" onclick="preencherInput('${i}')">${i}</a></li>`
+      for( i in Categorias) {
+        console.log(Categorias[i])
+          srtHTML += `<li><a class="dropdown-item" href="#" onclick="preencherInput('${Categorias[i].cat}')">${Categorias[i].cat}</a></li>`
   
       }
   
@@ -117,8 +118,6 @@
   
   }
   carregaDadosJSONServerCat(imprimeDado)
-  
-
   
   </script>
   

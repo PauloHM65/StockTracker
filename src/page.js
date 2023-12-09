@@ -68,21 +68,24 @@ function imprimeDado() {
             srtHTMLp += `<p class="cc" id="c">PESO(g)</p>`
             srtHTMLv += `<p class="cc" id="c">VALOR</p>`
             srtHTMLq += `<p class="cc" id="c">Qtd</p>`
-            srtHTMLmq += `<p class="cc" id="c">MinQtd</p>`
+            srtHTMLmq += `<p class="cc" id="c">Validadde</p>`
     msf = `<span>${categoria}</span>`
     for (i = 0; i < categorias.length; i++) {
+        var anox= categorias[i].ano
+        var mesx= categorias[i].mes
+        var dataFormatada = `${mesx}/${anox}`
         if (i % 2 != 0) {
             srtHTML += `<p class="cc" id="c">${categorias[i].nome}</p>`
             srtHTMLp += `<p class="cc" id="c">${categorias[i].peso}</p>`
             srtHTMLv += `<p class="cc" id="c">${categorias[i].valor}</p>`
             srtHTMLq += `<p class="cc" id="c">${categorias[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" id="c">${categorias[i].MinQtd}</p>`
+            srtHTMLmq += `<p class="cc" id="c">${dataFormatada}</p>`
         } else {
             srtHTML += `<p class="cc" >${categorias[i].nome}</p>`
             srtHTMLp += `<p class="cc" >${categorias[i].peso}</p>`
             srtHTMLv += `<p class="cc" >${categorias[i].valor}</p>`
             srtHTMLq += `<p class="cc" >${categorias[i].Qtd}</p>`
-            srtHTMLmq += `<p class="cc" >${categorias[i].MinQtd}</p>`
+            srtHTMLmq += `<p class="cc" >${dataFormatada}</p>`
         }
 
     }

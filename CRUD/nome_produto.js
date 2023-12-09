@@ -5,12 +5,12 @@ const UrlProdutos = "https://stocktracker--pauloharaujo345.repl.co/produtos"
 
 
 
-function carregaDadosJSONServerCat (func) {
+function carregaDadosJSONServerCat(func) {
     fetch(UrlCat)
-        .then (function (response) { return response.json() })
-        .then (function (dados) {
-             Categorias = dados
-            func ()
+        .then(function (response) { return response.json() })
+        .then(function (dados) {
+            Categorias = dados
+            func()
         })
 }
 
@@ -48,10 +48,10 @@ function confirmarCadastro() {
     if (mess.value !== "" && anos.value !== "" && produto.value !== "" && quantidade.value !== "" && valor.value !== "" && peso.value !== "" && catego.value !== "") {
         mensagem.innerText = `Produto cadastrada com sucesso: ${produto.value}/${quantidade.value}/${valor.value}/${peso.value}/${mess.value}/${anos.value}/${catego.value}`;
 
-        
+
 
         carregaDadosJSONServerPrudutos(inserirDadosJsonServer)
-        
+
     } else {
         mensagem.innerText = "Por favor, preencher antes de confirmar o cadastro.";
     }
@@ -92,7 +92,7 @@ function limparCampos() {
 
 function preencherInput(valor) {
     catego.value = valor;
-  }
+}
 
 
 
@@ -167,14 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// ------------------------------ Mosta as categorias e seta no input --------------------------
-
-
-
-
-
-
-
 
 
 /* ---------------------- pASSA A TELA  -----------------------------*/
@@ -184,61 +176,75 @@ function proximoTela() {
 }
 
 
-// toggle de opçoes
-
-
-
-
-
 //--------------------------- INCLUI NOVOS DADOS ------------------------- 
-function inserirDadosJsonServer(){
+function inserirDadosJsonServer() {
 
     var auxpeso = parseInt(peso.value)
     var auxvalor = parseInt(valor.value)
     var auxqtd = parseInt(quantidade.value)
     var auxprod = produto.value.toString()
     var auxcate = catego.value.toString()
-
-    for (let i=0; i< Produtos.length; i++){
-        var j = 1+i
+    var auxanoval = parseInt(anos.value)
+    var auxmesval = parseInt(mess.value)
+    var j = 1 
+    for (let i = 0; i < Produtos.length; i++) {
+        j += i
     }
-    j+=1
-    
-    fetch(UrlProdutos, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        
-    },
-    body: JSON.stringify(
-        {
-        "id":j,
+    j += 1
+    boody = {
+        "id": j,
         "nome": auxprod,
         "peso": auxpeso,
         "valor": auxvalor,
         "Qtd": auxqtd,
-        "MinQtd": quantidademIN,
+        "ano": auxanoval,
+        "mes" : auxmesval,
         "categoria": auxcate
     }
-    ),
-})
-    .then(response => {
-        console.log(response); // Certifique-se de que 'response' está definido aqui
-        return response.json();
-    })
-    .then(data => {
-        // Adicionar a resposta do servidor ao array
-        
-        Produtos.push(data);
+    Ext = Produtos
+    ProdCat = UrlProdutos
 
-        // Limpar o campo de input
-        limparCampos();
 
-        // Atualizar a tabela
-        // updateTable();
-    })
-    .catch(error => console.error('Erro:', error));
+    
+    CRUDPost()
+}
 
+function CRUDPost() {
+    // Verifica se a categoria já existe em categorias
+    fetch(UrlCat)
+        .then(response => response.json())
+        .then(categorias => {
+            const categoriaExistente = Categorias.find(c => c.cat === boody.categoria);
+
+            if (!categoriaExistente) {
+                // Se a categoria não existe, adiciona-a a categorias
+                return fetch(UrlCat, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ cat: boody.categoria }),
+                });
+            }
+
+            // Se a categoria já existe, continua com a próxima etapa
+            return Promise.resolve();1
+        })
+        .then(() => {
+            // Adiciona o novo produto a produtos
+            return fetch(UrlProdutos, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(boody),
+            });
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Produto adicionado com sucesso:', data);
+        })
+        .catch(error => console.error('Erro ao adicionar produto:', error));
 }
 
 
@@ -279,14 +285,6 @@ function updateTable() {
         cell3.innerHTML = '<button onclick="deleteItem(' + i + ')">Excluir</button>'; // Botão de exclusão
     }
 }
-
-
-
-
-
-
-
-
 
 
 
