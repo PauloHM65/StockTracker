@@ -4,12 +4,12 @@
 const UrlProdutos = "https://stocktracker--pauloharaujo345.repl.co/produtos"
 
 
-function carregaDadosJSONServerPrudutos (func) {
+function carregaDadosJSONServerPrudutos(func) {
     fetch(UrlProdutos)
-        .then (function (response) { return response.json() })
-        .then (function (dados) {
-             Produtos = dados
-            func ()
+        .then(function (response) { return response.json() })
+        .then(function (dados) {
+            Produtos = dados
+            func()
         })
 }
 
@@ -57,22 +57,26 @@ function imprimeDado() {
     let valor = document.getElementById('campoValor');
     let Qtd = document.getElementById('campoQtd');
     let MinQtd = document.getElementById('campoMinQtd');
+    let imgid = document.getElementById('campolixeira');
     let srtHTML = '';
     let srtHTMLp = '';
     let srtHTMLv = '';
     let srtHTMLq = '';
     let srtHTMLmq = '';
+    let imgg = '';
     let msf = '';
-    
+
     srtHTML += `<p class="cc" id="c">NOME</p>`
-            srtHTMLp += `<p class="cc" id="c">PESO(g)</p>`
-            srtHTMLv += `<p class="cc" id="c">VALOR</p>`
-            srtHTMLq += `<p class="cc" id="c">Qtd</p>`
-            srtHTMLmq += `<p class="cc" id="c">Validadde</p>`
+    srtHTMLp += `<p class="cc" id="c">PESO(g)</p>`
+    srtHTMLv += `<p class="cc" id="c">VALOR</p>`
+    srtHTMLq += `<p class="cc" id="c">Qtd</p>`
+    srtHTMLmq += `<p class="cc" id="c">Validadde</p>`
+    imgg += `<div class="cx"></div>`
+
     msf = `<span>${categoria}</span>`
     for (i = 0; i < categorias.length; i++) {
-        var anox= categorias[i].ano
-        var mesx= categorias[i].mes
+        var anox = categorias[i].ano
+        var mesx = categorias[i].mes
         var dataFormatada = `${mesx}/${anox}`
         if (i % 2 != 0) {
             srtHTML += `<p class="cc" id="c">${categorias[i].nome}</p>`
@@ -80,12 +84,14 @@ function imprimeDado() {
             srtHTMLv += `<p class="cc" id="c">${categorias[i].valor}</p>`
             srtHTMLq += `<p class="cc" id="c">${categorias[i].Qtd}</p>`
             srtHTMLmq += `<p class="cc" id="c">${dataFormatada}</p>`
+            imgg += `<div class="cc" id="c"><a id="deletar" onclick="excluirProduto(${categorias[i].id}, '${categorias[i].categoria}')"><img src="files/img/icons8-lixeira-24.png"  height="16"></a></div>`
         } else {
             srtHTML += `<p class="cc" >${categorias[i].nome}</p>`
             srtHTMLp += `<p class="cc" >${categorias[i].peso}</p>`
             srtHTMLv += `<p class="cc" >${categorias[i].valor}</p>`
             srtHTMLq += `<p class="cc" >${categorias[i].Qtd}</p>`
             srtHTMLmq += `<p class="cc" >${dataFormatada}</p>`
+            imgg += `<p class="cc"><a id="deletar" onclick="excluirProduto(${categorias[i].id}, '${categorias[i].categoria}')"><img src="files/img/icons8-lixeira-24.png"  height="16"></a></p>`
         }
 
     }
@@ -96,6 +102,7 @@ function imprimeDado() {
     Qtd.innerHTML = srtHTMLq
     MinQtd.innerHTML = srtHTMLmq
     categori.innerHTML = msf
+    imgid.innerHTML = imgg
 
 }
 
@@ -116,26 +123,81 @@ document.getElementById('btninventario').addEventListener('click', INVENTARIO);
 document.addEventListener('DOMContentLoaded', function () {
     // Função para lidar com a mudança de página
     function handlePageChange() {
-      // Obtem a URL atual
-      var currentPage = window.location.href;
-      
-      // Faça algo com a URL atual (por exemplo, imprima no console)
-      console.log('Página atual:', currentPage);
+        // Obtem a URL atual
+        var currentPage = window.location.href;
+
+        // Faça algo com a URL atual (por exemplo, imprima no console)
+        console.log('Página atual:', currentPage);
     }
-  
+
     // Adicione um ouvinte de eventos para o evento "popstate" (mudança de histórico)
     window.addEventListener('popstate', handlePageChange);
-  
+
     // Função para voltar à página anterior
     function goBack() {
-      window.history.back();
+        window.history.back();
     }
-  
+
     // Adicione um ouvinte de eventos para o botão de voltar
     var backButton = document.getElementById('img_retorno');
     if (backButton) {
-      backButton.addEventListener('click', goBack);
+        backButton.addEventListener('click', goBack);
     }
-  });
+});
+
+
+
+//------------------------  EXCLUI O PRODUTO ----------------------------
+
+
+function excluirProduto(id, categoria) {
+    // Exclui o produto
+    fetch(`${UrlProdutos}/${id}`, {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro ao excluir o produto: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Produto excluído com sucesso:', data);
+
+            // Verifica se a categoria ainda possui produtos
+            return fetch(`${UrlProdutos}?categoria=${categoria}`);
+        })
+        .then(response => response.json())
+        .then(produtosDaCategoria => {
+            console.log(produtosDaCategoria);
+
+            // Se não houver mais produtos na categoria, exclui a categoria
+            if (produtosDaCategoria.length === 0) {
+                // Encontra o ID da categoria
+                const categoriaObj = categorias.find(cat => cat.cat === categoria);
+                
+                if (categoriaObj) {
+                    const categoriaId = categoriaObj.id;
+
+                    // Exclui a categoria usando o ID
+                    return fetch(`${UrlCategorias}/${categoriaId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                }
+            }
+            
+            return Promise.resolve();
+        })
+        .then(() => {
+            console.log('Categoria excluída (se aplicável)');
+            // Recarrega a página após excluir o produto e, se necessário, a categoria
+            
+        })
+        .catch(error => console.error('Erro ao excluir produto:', error));
+}
+
 
 

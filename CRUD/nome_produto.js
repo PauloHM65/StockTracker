@@ -248,23 +248,6 @@ function CRUDPost() {
 }
 
 
-
-function deleteItem(index) {
-    // Enviar o pedido de exclusão para o servidor
-    fetch('http://exemplo.com/api/items/' + index, {
-        method: 'DELETE',
-    })
-        .then(response => response.json())
-        .then(data => {
-            // Remover o item pelo índice
-            items.splice(index, 1);
-
-            // Atualizar a tabela
-            updateTable();
-        })
-        .catch(error => console.error('Erro:', error));
-}
-
 function updateTable() {
     // Obter a referência da tabela
     var table = document.getElementById("itemTable");
