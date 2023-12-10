@@ -45,10 +45,8 @@ var mensagem = document.getElementById("mensagem")
 //-----------------------  Cadastar Produto   -------------------------------------
 function confirmarCadastro() {
     //confirma que todos os espaços estao escritos
-    if (mess.value !== "" && anos.value !== "" && produto.value !== "" && quantidade.value !== "" && valor.value !== "" && peso.value !== "" && catego.value !== "") {
-        mensagem.innerText = `Produto cadastrada com sucesso: ${produto.value}/${quantidade.value}/${valor.value}/${peso.value}/${mess.value}/${anos.value}/${catego.value}`;
-
-
+    if ( produto.value !== "" && quantidade.value !== "" && valor.value !== "" && peso.value !== "" && catego.value !== "") {
+        mensagem.innerHTML = `<strong>Produto cadastrado com sucesso</strong><br>Categoria:${catego.value}<br>Nome: ${produto.value}  -  Quantidade: ${quantidade.value} <br>Valor: ${valor.value}  -  Peso: ${peso.value}<br> Ano: ${mess.value}/${anos.value}`;
 
         carregaDadosJSONServerPrudutos(inserirDadosJsonServer)
 
@@ -186,7 +184,7 @@ function inserirDadosJsonServer() {
     var auxcate = catego.value.toString()
     var auxanoval = parseInt(anos.value)
     var auxmesval = parseInt(mess.value)
-    var j = 1 
+    var j = 1
     for (let i = 0; i < Produtos.length; i++) {
         j += i
     }
@@ -214,7 +212,7 @@ function CRUDPost() {
     fetch(UrlCat)
         .then(response => response.json())
         .then(categorias => {
-            const categoriaExistente = Categorias.find(c => c.cat === boody.categoria);
+            const categoriaExistente = categorias.find(c => c.cat === boody.categoria);
 
             if (!categoriaExistente) {
                 // Se a categoria não existe, adiciona-a a categorias

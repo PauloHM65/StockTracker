@@ -1,0 +1,28 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "dasdas",
+            "peso": 7,
+            "valor": 7,
+            "Qtd": 7,
+            "ano": 2024,
+            "mes": 2,
+            "categoria": "Petiscos"
+        }
+    ],
+    "categorias": [
+        {
+            "id": 1,
+            "cat": "Frutas"
+        },
+        {
+            "id": 2,
+            "cat": "Petiscos"
+        },
+        {
+            "id": 3,
+            "cat": "Enlatados"
+        }
+    ]
+}

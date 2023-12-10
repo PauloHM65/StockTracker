@@ -3,7 +3,6 @@
 
 const UrlProdutos = "https://stocktracker--pauloharaujo345.repl.co/produtos"
 
-
 function carregaDadosJSONServerPrudutos(func) {
     fetch(UrlProdutos)
         .then(function (response) { return response.json() })
@@ -13,6 +12,18 @@ function carregaDadosJSONServerPrudutos(func) {
         })
 }
 
+
+const UrlCat = "https://stocktracker--pauloharaujo345.repl.co/categorias"
+
+function carregaDadosJSONServerCat(func) {
+    fetch(UrlCat)
+        .then(function (response) { return response.json() })
+        .then(function (dados) {
+            Categorias = dados
+            func()
+        })
+
+}
 
 /* -------------------- INCLUI E MOSTRA DADOS -------------------------------*/
 
@@ -169,35 +180,48 @@ function excluirProduto(id, categoria) {
         })
         .then(response => response.json())
         .then(produtosDaCategoria => {
+
             console.log(produtosDaCategoria);
-
             // Se não houver mais produtos na categoria, exclui a categoria
-            if (produtosDaCategoria.length === 0) {
-                // Encontra o ID da categoria
-                const categoriaObj = categorias.find(cat => cat.cat === categoria);
-                
-                if (categoriaObj) {
-                    const categoriaId = categoriaObj.id;
+            if (produtosDaCategoria.length === 0 || produtosDaCategoria.length === null) {
+                console.log("Categoria não possui mais produtos. Excluindo...");
 
-                    // Exclui a categoria usando o ID
-                    return fetch(`${UrlCategorias}/${categoriaId}`, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
+                // Encontra o ID da categoria e exclui
+                return carregaDadosJSONServerCat(deletCat)
+                    .then(() => {
+                        
+                        console.log('Categoria excluída com sucesso');
+                        // Recarrega a página após excluir o produto e a categoria, se necessário
+                        location.reload();
+                    })
+                    .catch(error => {
+                        console.error('Erro ao excluir categoria:', error);
+                        // Se ocorrer um erro ao excluir a categoria, ainda assim, recarrega a página
+                        location.reload();
                     });
-                }
+            } else {
+                // Se há produtos na categoria, apenas recarrega a página
+                location.reload();
             }
-            
-            return Promise.resolve();
-        })
-        .then(() => {
-            console.log('Categoria excluída (se aplicável)');
-            // Recarrega a página após excluir o produto e, se necessário, a categoria
-            
         })
         .catch(error => console.error('Erro ao excluir produto:', error));
 }
 
+function deletCat() {
 
+    console.log(Categorias);
+    const categoriaObj = Categorias.find(cat => cat.cat == categoria);
+    console.log(categoriaObj);
+    if (categoriaObj) {
+        const categoriaId = categoriaObj.id;
+
+        // Exclui a categoria usando o ID
+        return fetch(`${UrlCat}/${categoriaId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+    }
+}
 
