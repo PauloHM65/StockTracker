@@ -6,5 +6,5 @@ Este projeto tem como objetivo implementar um sistema de gestão de estoque. A a
 
 ## Gráficos das Atividades do Estoque
 
-Para melhor compreensão e monitoramento das atividades do estoque, foram incorporados gráficos que apresentam métricas e indicadores dos produtos. Esses gráficos fornecem uam visão mais ampla e informativa do estoque.
+Para melhor compreensão e monitoramento das atividades do estoque, foram incorporados gráficos que apresentam métricas e indicadores dos produtos. Esses, fornecem uma visão mais ampla e informativa do estoque, oque auxilia nas tomadas de decisões.
 
